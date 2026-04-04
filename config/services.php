@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'ai' => [
+        'openai_vector_store_id' => env('OPENAI_VECTOR_STORE_ID'),
+    ],
+
 ];
