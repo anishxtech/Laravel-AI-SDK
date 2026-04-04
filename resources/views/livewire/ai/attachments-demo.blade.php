@@ -1,15 +1,12 @@
-<div class="mx-auto max-w-2xl space-y-6 p-6">
-        <div>
-            <flux:heading size="lg">{{ __('Attachments') }}</flux:heading>
-            <flux:text class="mt-1 text-zinc-600 dark:text-zinc-400">
-                {{ __('Upload a text-oriented file or image. The agent receives Files\\Document or Files\\Image.') }}
-            </flux:text>
-        </div>
-
-        <flux:card class="space-y-4 p-4">
+<x-ai.demo-shell
+    :title="__('Attachments')"
+    :subtitle="__('Upload a text-oriented file or image. The agent receives Files\\Document or Files\\Image.')"
+>
+    <div class="mx-auto max-w-2xl space-y-6">
+        <flux:card class="space-y-4 border-zinc-800 bg-zinc-900/50 p-4">
             <flux:input type="file" wire:model="file" label="{{ __('File') }}" />
             <div wire:loading wire:target="file" class="text-sm text-zinc-500">{{ __('Uploading…') }}</div>
-            <flux:textarea wire:model="prompt" rows="2" label="{{ __('Prompt') }}" />
+            <flux:textarea wire:model="prompt" rows="2" label="{{ __('Prompt') }}" class="border-zinc-700 bg-zinc-900" />
             <flux:button variant="primary" wire:click="analyze" wire:loading.attr="disabled">
                 {{ __('Analyze') }}
             </flux:button>
@@ -19,6 +16,7 @@
         </flux:card>
 
         @if ($output)
-            <flux:card class="p-4 text-sm whitespace-pre-wrap">{{ $output }}</flux:card>
+            <flux:card class="whitespace-pre-wrap border-zinc-800 bg-zinc-900/50 p-4 text-sm text-zinc-300">{{ $output }}</flux:card>
         @endif
-</div>
+    </div>
+</x-ai.demo-shell>

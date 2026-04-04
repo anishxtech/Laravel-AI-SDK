@@ -1,20 +1,15 @@
-<div
-    class="mx-auto max-w-2xl space-y-6 p-6"
-    @if ($waitingForQueue)
-        wire:poll.1s="checkQueueResult"
-    @endif
+<x-ai.demo-shell
+    :title="__('Queued agent')"
+    :subtitle="__('Uses queue() with a then callback that stores the result in cache. Run php artisan queue:work (or QUEUE_CONNECTION=sync for local).')"
 >
-        <div>
-            <flux:heading size="lg">{{ __('Queued agent') }}</flux:heading>
-            <flux:text class="mt-1 text-zinc-600 dark:text-zinc-400">
-                {{ __('Uses queue() with a then callback that stores the result in cache. Run ') }}
-                <code class="rounded bg-zinc-200 px-1 text-xs dark:bg-zinc-700">php artisan queue:work</code>
-                {{ __(' (or set QUEUE_CONNECTION=sync for instant local runs).') }}
-            </flux:text>
-        </div>
-
-        <flux:card class="space-y-4 p-4">
-            <flux:textarea wire:model="input" rows="3" label="{{ __('Prompt') }}" />
+    <div
+        class="mx-auto max-w-2xl space-y-6"
+        @if ($waitingForQueue)
+            wire:poll.1s="checkQueueResult"
+        @endif
+    >
+        <flux:card class="space-y-4 border-zinc-800 bg-zinc-900/50 p-4">
+            <flux:textarea wire:model="input" rows="3" label="{{ __('Prompt') }}" class="border-zinc-700 bg-zinc-900" />
             <flux:button variant="primary" wire:click="runQueuedPrompt" wire:loading.attr="disabled">
                 {{ __('Queue prompt') }}
             </flux:button>
@@ -27,6 +22,7 @@
         </flux:card>
 
         @if ($queueResult)
-            <flux:card class="p-4 text-sm whitespace-pre-wrap">{{ $queueResult }}</flux:card>
+            <flux:card class="whitespace-pre-wrap border-zinc-800 bg-zinc-900/50 p-4 text-sm text-zinc-300">{{ $queueResult }}</flux:card>
         @endif
-</div>
+    </div>
+</x-ai.demo-shell>

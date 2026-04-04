@@ -24,6 +24,9 @@ class EmbeddingsDemo extends Component
 
     public bool $busy = false;
 
+    /** When true, chains ->cache() on the embedding request (see ai-sdk topic 30). */
+    public bool $useEmbeddingCache = false;
+
     public function embed(): void
     {
         $this->busy = true;
@@ -32,7 +35,11 @@ class EmbeddingsDemo extends Component
 
         try {
             $lines = array_values(array_filter(array_map('trim', explode("\n", $this->embedInput))));
-            $response = Embeddings::for($lines)->generate();
+            $builder = Embeddings::for($lines);
+            if ($this->useEmbeddingCache) {
+                $builder = $builder->cache();
+            }
+            $response = $builder->generate();
             $first = $response->embeddings[0] ?? [];
             $this->embeddingPreview = [
                 'vectors' => count($response->embeddings),

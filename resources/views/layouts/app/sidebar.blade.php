@@ -18,8 +18,59 @@
                     <flux:sidebar.item icon="sparkles" :href="route('chat')" :current="request()->routeIs('chat')" wire:navigate>
                         {{ __('Chat') }}
                     </flux:sidebar.item>
-                    <flux:sidebar.item icon="book-open" :href="route('ai.index')" :current="request()->routeIs('ai.*')" wire:navigate>
-                        {{ __('AI SDK examples') }}
+                </flux:sidebar.group>
+
+                <flux:sidebar.group :heading="__('AI SDK')" class="grid">
+                    <flux:sidebar.item icon="layout-grid" :href="route('ai.index')" :current="request()->routeIs('ai.index')" wire:navigate>
+                        {{ __('Overview') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="document-text" :href="route('ai.structured')" :current="request()->routeIs('ai.structured')" wire:navigate>
+                        {{ __('Structured output') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="wrench" :href="route('ai.tools')" :current="request()->routeIs('ai.tools')" wire:navigate>
+                        {{ __('Tools') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="bolt" :href="route('ai.quick')" :current="request()->routeIs('ai.quick')" wire:navigate>
+                        {{ __('Quick ask') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="paper-clip" :href="route('ai.attachments')" :current="request()->routeIs('ai.attachments')" wire:navigate>
+                        {{ __('Attachments') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="signal" :href="route('ai.stream')" :current="request()->routeIs('ai.stream') || request()->routeIs('ai.stream.sse') || request()->routeIs('ai.stream.vercel')" wire:navigate>
+                        {{ __('Streaming') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="queue-list" :href="route('ai.queue')" :current="request()->routeIs('ai.queue')" wire:navigate>
+                        {{ __('Queued agent') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="photo" :href="route('ai.images')" :current="request()->routeIs('ai.images')" wire:navigate>
+                        {{ __('Images') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="musical-note" :href="route('ai.speech')" :current="request()->routeIs('ai.speech')" wire:navigate>
+                        {{ __('Speech') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="microphone" :href="route('ai.transcribe')" :current="request()->routeIs('ai.transcribe')" wire:navigate>
+                        {{ __('Transcribe') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="circle-stack" :href="route('ai.embeddings')" :current="request()->routeIs('ai.embeddings')" wire:navigate>
+                        {{ __('Embeddings') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="document" :href="route('ai.files')" :current="request()->routeIs('ai.files')" wire:navigate>
+                        {{ __('Provider files') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="archive-box" :href="route('ai.stores')" :current="request()->routeIs('ai.stores')" wire:navigate>
+                        {{ __('Vector stores') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="magnifying-glass" :href="route('ai.file-search')" :current="request()->routeIs('ai.file-search')" wire:navigate>
+                        {{ __('File search') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="rectangle-group" :href="route('ai.similarity')" :current="request()->routeIs('ai.similarity')" wire:navigate>
+                        {{ __('Similarity (pgvector)') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="shield-check" :href="route('ai.middleware')" :current="request()->routeIs('ai.middleware')" wire:navigate>
+                        {{ __('Middleware') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="arrow-path" :href="route('ai.failover')" :current="request()->routeIs('ai.failover')" wire:navigate>
+                        {{ __('Failover') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>

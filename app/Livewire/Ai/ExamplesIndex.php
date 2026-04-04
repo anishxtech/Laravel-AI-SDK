@@ -24,13 +24,13 @@ class ExamplesIndex extends Component
             ['title' => __('Image generation'), 'description' => __('Image::of, store'), 'route' => 'ai.images', 'path' => '/ai/images', 'keys' => 'GEMINI / OPENAI / XAI (see config/ai.php)'],
             ['title' => __('Text to speech'), 'description' => __('Audio::of'), 'route' => 'ai.speech', 'path' => '/ai/speech', 'keys' => 'OPENAI or ELEVENLABS_API_KEY'],
             ['title' => __('Transcription'), 'description' => __('Transcription::fromUpload'), 'route' => 'ai.transcribe', 'path' => '/ai/transcribe', 'keys' => 'OPENAI (or Mistral/Eleven per config)'],
-            ['title' => __('Embeddings & reranking'), 'description' => __('Embeddings::for, Reranking::of'), 'route' => 'ai.embeddings', 'path' => '/ai/embeddings', 'keys' => 'OPENAI + COHERE_API_KEY (rerank default)'],
+            ['title' => __('Embeddings & reranking'), 'description' => __('Embeddings::for, optional cache(), Reranking::of'), 'route' => 'ai.embeddings', 'path' => '/ai/embeddings', 'keys' => 'OPENAI + COHERE_API_KEY (rerank default)'],
             ['title' => __('Provider files'), 'description' => __('Document::put, fromId'), 'route' => 'ai.files', 'path' => '/ai/files', 'keys' => config('ai.default').' API key'],
             ['title' => __('Vector stores'), 'description' => __('Stores::create, add'), 'route' => 'ai.stores', 'path' => '/ai/stores', 'keys' => 'OPENAI or GEMINI (per default_for text/store)'],
             ['title' => __('File search tool'), 'description' => __('FileSearch + OPENAI_VECTOR_STORE_ID'), 'route' => 'ai.file-search', 'path' => '/ai/file-search', 'keys' => 'OPENAI_API_KEY, OPENAI_VECTOR_STORE_ID'],
             ['title' => __('Similarity search (pgvector)'), 'description' => __('SimilaritySearch tool, PostgreSQL only'), 'route' => 'ai.similarity', 'path' => '/ai/similarity', 'keys' => 'PostgreSQL + pgvector, OPENAI (embeddings)'],
             ['title' => __('Agent middleware'), 'description' => __('HasMiddleware'), 'route' => 'ai.middleware', 'path' => '/ai/middleware', 'keys' => config('ai.default').' API key'],
-            ['title' => __('Provider failover'), 'description' => __('prompt(..., provider: [Lab::…, Lab::…])'), 'route' => 'ai.failover', 'path' => '/ai/failover', 'keys' => 'Two configured text providers recommended'],
+            ['title' => __('Provider failover'), 'description' => __('prompt(..., provider: [Lab::…, Lab::…]), HasProviderOptions on agent'), 'route' => 'ai.failover', 'path' => '/ai/failover', 'keys' => 'Two configured text providers recommended'],
         ];
     }
 

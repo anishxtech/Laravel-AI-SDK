@@ -1,12 +1,9 @@
-<div class="mx-auto max-w-2xl space-y-6 p-6">
-        <div>
-            <flux:heading size="lg">{{ __('Transcription') }}</flux:heading>
-            <flux:text class="mt-1 text-zinc-600 dark:text-zinc-400">
-                {{ __('Upload a short audio file. Uses Laravel\\Ai\\Transcription.') }}
-            </flux:text>
-        </div>
-
-        <flux:card class="space-y-4 p-4">
+<x-ai.demo-shell
+    :title="__('Transcription')"
+    :subtitle="__('Upload a short audio file. Uses Laravel\\Ai\\Transcription (optionally diarize() in code).')"
+>
+    <div class="mx-auto max-w-2xl space-y-6">
+        <flux:card class="space-y-4 border-zinc-800 bg-zinc-900/50 p-4">
             <flux:input type="file" wire:model="audio" label="{{ __('Audio file') }}" />
             <flux:button variant="primary" wire:click="transcribe" wire:loading.attr="disabled">
                 {{ __('Transcribe') }}
@@ -17,6 +14,7 @@
         </flux:card>
 
         @if ($transcript)
-            <flux:card class="p-4 text-sm whitespace-pre-wrap">{{ $transcript }}</flux:card>
+            <flux:card class="whitespace-pre-wrap border-zinc-800 bg-zinc-900/50 p-4 text-sm text-zinc-300">{{ $transcript }}</flux:card>
         @endif
-</div>
+    </div>
+</x-ai.demo-shell>

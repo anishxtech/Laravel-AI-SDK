@@ -1,13 +1,14 @@
-<div class="mx-auto max-w-2xl space-y-6 p-6">
-        <div>
-            <flux:heading size="lg">{{ __('Streaming (SSE)') }}</flux:heading>
-            <flux:text class="mt-1 text-zinc-600 dark:text-zinc-400">
-                {{ __('These routes return StreamableAgentResponse for the browser or API clients. You must be logged in.') }}
-            </flux:text>
+<x-ai.demo-shell
+    :title="__('Streaming (SSE & Vercel)')"
+    :subtitle="__('Opens StreamShowcaseAgent streams in a new tab. Broadcasting streamed chunks to channels (Reverb, Pusher, etc.) is documented in ai-sdk topic 13.')"
+>
+    <div class="mx-auto max-w-2xl space-y-6">
+        <div class="rounded-lg border border-zinc-700 bg-zinc-900/80 p-4 text-sm text-zinc-300">
+            {{ __('Broadcasting: iterate the stream and call $event->broadcast(...) or use broadcastOnQueue() with a configured broadcasting driver.') }}
         </div>
 
-        <flux:card class="space-y-4 p-4">
-            <flux:input wire:model="query" name="q" label="{{ __('Query (q)') }}" />
+        <flux:card class="space-y-4 border-zinc-800 bg-zinc-900/50 p-4">
+            <flux:input wire:model="query" name="q" label="{{ __('Query (q)') }}" class="border-zinc-700 bg-zinc-900" />
             <div class="flex flex-wrap gap-2">
                 <a
                     href="{{ route('ai.stream.sse', ['q' => $query]) }}"
@@ -27,4 +28,5 @@
                 </a>
             </div>
         </flux:card>
-</div>
+    </div>
+</x-ai.demo-shell>

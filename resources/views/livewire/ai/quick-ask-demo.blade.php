@@ -1,13 +1,10 @@
-<div class="mx-auto max-w-2xl space-y-6 p-6">
-        <div>
-            <flux:heading size="lg">{{ __('Anonymous agent') }}</flux:heading>
-            <flux:text class="mt-1 text-zinc-600 dark:text-zinc-400">
-                {{ __('Uses the agent() helper without a dedicated Agent class.') }}
-            </flux:text>
-        </div>
-
-        <flux:card class="space-y-4 p-4">
-            <flux:textarea wire:model="input" rows="3" label="{{ __('Prompt') }}" />
+<x-ai.demo-shell
+    :title="__('Anonymous agent')"
+    :subtitle="__('Uses the agent() helper without a dedicated Agent class. Agent PHP attributes are covered in the ai-sdk topic 22 docs.')"
+>
+    <div class="mx-auto max-w-2xl space-y-6">
+        <flux:card class="space-y-4 border-zinc-800 bg-zinc-900/50 p-4">
+            <flux:textarea wire:model="input" rows="3" label="{{ __('Prompt') }}" class="border-zinc-700 bg-zinc-900" />
             <flux:button variant="primary" wire:click="ask" wire:loading.attr="disabled">
                 {{ __('Ask') }}
             </flux:button>
@@ -17,6 +14,7 @@
         </flux:card>
 
         @if ($output)
-            <flux:card class="p-4 text-sm">{{ $output }}</flux:card>
+            <flux:card class="border-zinc-800 bg-zinc-900/50 p-4 text-sm text-zinc-300">{{ $output }}</flux:card>
         @endif
-</div>
+    </div>
+</x-ai.demo-shell>
