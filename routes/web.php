@@ -11,6 +11,7 @@ use App\Livewire\Ai\ImageDemo;
 use App\Livewire\Ai\MiddlewareDemo;
 use App\Livewire\Ai\QueueDemo;
 use App\Livewire\Ai\QuickAskDemo;
+use App\Livewire\Ai\ResumeMatcherDemo;
 use App\Livewire\Ai\SimilarityDemo;
 use App\Livewire\Ai\SpeechDemo;
 use App\Livewire\Ai\StoresDemo;
@@ -41,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/ai/speech', SpeechDemo::class)->name('ai.speech');
     Route::get('/ai/transcribe', TranscribeDemo::class)->name('ai.transcribe');
     Route::get('/ai/embeddings', EmbeddingsDemo::class)->name('ai.embeddings');
+    Route::get('/ai/resume-matcher', ResumeMatcherDemo::class)->name('ai.resume-matcher');
     Route::get('/ai/files', FilesDemo::class)->name('ai.files');
     Route::get('/ai/stores', StoresDemo::class)->name('ai.stores');
     Route::get('/ai/file-search', FileSearchDemo::class)->name('ai.file-search');

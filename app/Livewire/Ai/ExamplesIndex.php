@@ -25,6 +25,7 @@ class ExamplesIndex extends Component
             ['title' => __('Text to speech'), 'description' => __('Audio::of'), 'route' => 'ai.speech', 'path' => '/ai/speech', 'keys' => 'OPENAI or ELEVENLABS_API_KEY'],
             ['title' => __('Transcription'), 'description' => __('Transcription::fromUpload'), 'route' => 'ai.transcribe', 'path' => '/ai/transcribe', 'keys' => 'OPENAI (or Mistral/Eleven per config)'],
             ['title' => __('Embeddings & reranking'), 'description' => __('Embeddings::for, optional cache(), Reranking::of'), 'route' => 'ai.embeddings', 'path' => '/ai/embeddings', 'keys' => 'OPENAI + COHERE_API_KEY (rerank default)'],
+            ['title' => __('Resume matcher engine'), 'description' => __('Resume/JD parsing, embeddings, similarity + reranking, gap explanation'), 'route' => 'ai.resume-matcher', 'path' => '/ai/resume-matcher', 'keys' => 'Text + embeddings provider, optional rerank provider'],
             ['title' => __('Provider files'), 'description' => __('Document::put, fromId'), 'route' => 'ai.files', 'path' => '/ai/files', 'keys' => config('ai.default').' API key'],
             ['title' => __('Vector stores'), 'description' => __('Stores::create, add'), 'route' => 'ai.stores', 'path' => '/ai/stores', 'keys' => 'OPENAI or GEMINI (per default_for text/store)'],
             ['title' => __('File search tool'), 'description' => __('FileSearch + OPENAI_VECTOR_STORE_ID'), 'route' => 'ai.file-search', 'path' => '/ai/file-search', 'keys' => 'OPENAI_API_KEY, OPENAI_VECTOR_STORE_ID'],

@@ -54,6 +54,9 @@
                     <flux:sidebar.item icon="circle-stack" :href="route('ai.embeddings')" :current="request()->routeIs('ai.embeddings')" wire:navigate>
                         {{ __('Embeddings') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="user-group" :href="route('ai.resume-matcher')" :current="request()->routeIs('ai.resume-matcher')" wire:navigate>
+                        {{ __('Resume matcher') }}
+                    </flux:sidebar.item>
                     <flux:sidebar.item icon="document" :href="route('ai.files')" :current="request()->routeIs('ai.files')" wire:navigate>
                         {{ __('Provider files') }}
                     </flux:sidebar.item>
